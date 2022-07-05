@@ -1,5 +1,11 @@
-@import 'bootstrap';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('/node_modules/bootstrap');
+@import url("/node_modules/tailwindcss/base.css");
 
+@import url("/node_modules/tailwindcss/components.css");
+
+@import url("/node_modules/tailwindcss/utilities.css");
+
+@import url('/node_modules/@fortawesome/fontawesome-free/css/fontawesome.css');
+@import url('/node_modules/@fortawesome/fontawesome-free/css/regular');
+@import url('/node_modules/@fortawesome/fontawesome-free/css/solid');
+@import url('/node_modules/@fortawesome/fontawesome-free/css/brands');
