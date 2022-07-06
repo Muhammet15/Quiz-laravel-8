@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Quiz;
+use App\Http\Requests\QuizCreateRequest;
+
 class QuizController extends Controller
 {
     /**
@@ -34,9 +37,14 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuizCreateRequest $request)
     {
-        return $request->post();
+        // Eski yöntem
+        // $quiz =new Quiz;
+        // $quiz->title=$request->title;
+        // $quiz->save();
+        Quiz::create($request->post()); // sql alanlar ile request adları aynı zaten
+        return redirect()->route('quizzes.index')->withSuccess('Kaydedildi.');//withten sonra yollanan success bir sessiondır.
     }
 
     /**
