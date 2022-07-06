@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Quiz;
 use App\Http\Requests\QuizCreateRequest;
+use App\Http\Requests\QuizUpdateRequest;
 
 class QuizController extends Controller
 {
@@ -44,7 +45,7 @@ class QuizController extends Controller
         // $quiz->title=$request->title;
         // $quiz->save();
         Quiz::create($request->post()); // sql alanlar ile request adları aynı zaten
-        return redirect()->route('quizzes.index')->withSuccess('Kaydedildi.');//withten sonra yollanan success bir sessiondır.
+        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Kaydedildi.');//withten sonra yollanan success bir sessiondır.
     }
 
     /**
@@ -66,7 +67,9 @@ class QuizController extends Controller
      */
     public function edit($id)
     {
-        //
+        $quiz = Quiz::find($id) ?? abort(404,'Quiz bulunamadı');
+        //dd($quiz);
+        return view('admin.quiz.edit',compact('quiz'));
     }
 
     /**
@@ -76,10 +79,14 @@ class QuizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuizUpdateRequest $request, $id)
     {
-        //
-    }
+       $quiz = Quiz::find($id) ?? abort(404,'Quiz bulunamadı');
+       Quiz::where('id',$id)->update($request->except(['_method','_token'])); //hariç
+       
+       // return $request->post();
+       return redirect()->route('quizzes.index')->withSuccess('Başarıyla Güncellendi.');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -89,6 +96,8 @@ class QuizController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $quiz = Quiz::find($id) ?? abort(404,'Quiz bulunamadı');
+        $quiz->delete();
+        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Silindi.');
     }
 }

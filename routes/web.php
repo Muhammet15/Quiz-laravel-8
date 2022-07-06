@@ -25,6 +25,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
 });
 
 Route::group(['middleware' => ['auth','isAdmin'],'prefix'=>'admin'],function(){
-// Route::get('deneme',function() {return "middleware testi";  });
-Route::resource('quizzes',QuizController::class);
+    // Route::get('deneme',function() {return "middleware testi";  });
+    Route::get('quizzes/{id}',[QuizController::class,'destroy'])->whereNumber('id')->name('quizzes.destroy'); //sadece sayı ollması için id yazdık ve delete için show gidiyordu ben override yaptım ve kodu üste yazmam gerekiyordu
+    Route::resource('quizzes',QuizController::class);
 });
