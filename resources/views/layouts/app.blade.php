@@ -14,7 +14,10 @@
         @livewireStyles
 
         <!-- Scripts -->
+       {{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> --}}
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -38,18 +41,12 @@
                     {{-- <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <x-jet-welcome />
                     </div> --}}
-                    
-                        {{ $slot }}
-                      
+                        {{ $slot }}                     
                 </div>
             </div>
-            
-                
-       
         </div>
-
         @stack('modals')
-
+    
         @livewireScripts
     </body>
 </html>
