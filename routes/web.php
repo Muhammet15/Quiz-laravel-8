@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +31,5 @@ Route::group(['middleware' => ['auth','isAdmin'],'prefix'=>'admin'],function(){
     // Route::get('deneme',function() {return "middleware testi";  });
     Route::get('quizzes/{id}',[QuizController::class,'destroy'])->whereNumber('id')->name('quizzes.destroy'); //sadece sayı ollması için id yazdık ve delete için show gidiyordu ben override yaptım ve kodu üste yazmam gerekiyordu
     Route::resource('quizzes',QuizController::class);
+    Route::resource('quiz/{quiz_id}/questions',QuestionController::class);
 });
