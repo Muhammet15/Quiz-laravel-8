@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header"> <b>{{$quiz->title}}</b> Quizine ait sorular</x-slot>
+    <x-slot name="header"> {{$quiz->title}} Quizine ait sorular</x-slot>
 
     <div class="card">
         <div class="card-body">
@@ -22,24 +22,25 @@
                     @foreach( $quiz->questions as $questions )
                     <tr>
                         <td scope="row">{{$questions->question}}</td>
-                        <td>{{$questions->image}}</td>
+                        <td>
+                            @if($questions->image) 
+                            <a href="{{asset($questions->image)}}" class="btn btn-sm btn-light" target="_blank">Görüntüle</a>
+                            @endif
+                        </td>
                         <td>{{$questions->answer1}}</td>
                         <td>{{$questions->answer2}}</td>
                         <td>{{$questions->answer3}}</td>
                         <td>{{$questions->answer4}}</td>
                         <td>{{substr($questions->correct_answer,-1)}}. Answer</td>
                         <td style="width: 100px">
-                            <a href="{{route('quizzes.edit',$questions->id)}}" class="btn btn-sm btn-primary"><i class=" fa fa-pen"></i></a>
-                            <a href="{{route('quizzes.destroy',$questions->id)}}" class="btn btn-sm btn-danger"><i class=" fa fa-times"></i></a>
+                            <a href="{{route('questions.edit',[$quiz->id,$questions->id])}}" class="btn btn-sm btn-primary"><i class=" fa fa-pen"></i></a>
+                            <a href="{{route('questions.destroy',[$quiz->id,$questions->id])}}" class="btn btn-sm btn-danger"><i class=" fa fa-times"></i></a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
               </table>
         </div>
-   
-
-
     </div>
 
 </x-app-layout>

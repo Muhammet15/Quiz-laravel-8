@@ -10,6 +10,8 @@ use App\Models\Quiz;
 use App\Http\Requests\QuestionCreateRequest;
 use Illuminate\Support\Str;
 
+use App\Http\Requests\QuestionUpdateRequest;
+
 class QuestionController extends Controller
 {
     /**
@@ -61,9 +63,8 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($quiz_id,$id)
+    public function show($id)
     {
-        return $quiz_id."azsdasd".$id;
     }
 
     /**
@@ -72,9 +73,10 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$question_id)
     {
-        //
+        $question = Quiz::find($id)->questions()->whereId($question_id)->first() ?? abort(404,'Quiz bulunamadı');
+        return view('admin.questions.edit',compact('question'));
     }
 
     /**
@@ -84,9 +86,19 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionUpdateRequest $request, $id,$question_id)
     {
-        //
+        if($request->hasFile('image')){
+            $fileName=Str::slug($request->question).'.'.$request->image->extension();
+            $fileNameWithUpload='uploads/'.$fileName;
+            $request->image->move(public_path('uploads'),$fileName);
+            $request->merge([
+                'image'=>$fileNameWithUpload
+            ]); 
+        }
+       Quiz::find($id)->questions()->whereId($question_id)->first()->update($request->post()) ?? abort(404,'Quiz bulunamadı');
+       // return $request->post();
+       return redirect()->route('questions.index',$id)->withSuccess('Başarıyla Güncellendi.');
     }
 
     /**
@@ -95,8 +107,11 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$question_id)
     {
-        //
+        $quiz = Quiz::find($id);
+        return "sadsd".$quiz;
+        $quiz->delete();
+        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Silindi.');
     }
 }
