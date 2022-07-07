@@ -3,13 +3,26 @@
 
     <div class="card">
         <div class="card-body">
+            <h5 class="card-title"><a href="{{route('quizzes.index')}}" class="btn btn-sm btn-secondary"> <i style="color:white" class="fa fa-arrow-left"></i> Quizlere dön</a></h5>
+            <h5 class="card-title float-right"><a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"> <i style="color:white" class="fa fa-plus"></i> Quiz oluştur</a></h5>
             <form method="POST" action="{{route('quizzes.update',$quiz->id)}}">
                 @method('PUT')
                 @csrf
                 <div class=" form-group mt-3">
                     <label >Quiz başlığı</label>
                     <input type="text" name="title" class="form-control" value="{{$quiz->title}}">
-                    {{$quiz->title}}
+                </div>
+                <div class=" form-group mt-3">
+                    <label>Quiz Status</label>
+                    <select name="status" class="form-control">
+                        <option 
+                            @if($quiz->questions_count>4)
+                                @if($quiz->status==='publish') selected @endif  value="publish">Publish 
+                            @endif 
+                        </option>
+                        <option  @if($quiz->status==='passive') selected @endif  value="passive">Passive</option>
+                        <option  @if($quiz->status==='draft') selected @endif  value="draft">Draft</option>
+                    </select>
                 </div>
                 <div class=" form-group mt-3">
                     <label>Quiz Açıklama</label>

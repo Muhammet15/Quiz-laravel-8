@@ -3,6 +3,7 @@
 
     <div class="card">
         <div class="card-body">
+            <h5 class="card-title"><a href="{{route('questions.index',$question->quiz_id)}}" class="btn btn-sm btn-secondary"> <i style="color:white" class="fa fa-arrow-left"></i> Questionlara dön</a></h5>
             <form method="POST" action="{{route('questions.update',[$question->quiz_id,$question->id])}}" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf

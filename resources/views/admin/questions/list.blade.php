@@ -3,7 +3,8 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">
+            <h5 class="card-title"><a href="{{route('quizzes.index')}}" class="btn btn-sm btn-secondary"> <i style="color:white" class="fa fa-arrow-left"></i> Quizlere dön</a></h5>
+            <h5 class="card-title float-right">
                 <a href="{{route('questions.create',$quiz->id)}}" class="btn btn-sm btn-primary"> <i style="color:white" class="fa fa-plus"></i> Question oluştur</a></h5>
             <table class="table table-sm">
                 <thead>
@@ -31,7 +32,7 @@
                         <td>{{$questions->answer2}}</td>
                         <td>{{$questions->answer3}}</td>
                         <td>{{$questions->answer4}}</td>
-                        <td>{{substr($questions->correct_answer,-1)}}. Answer</td>
+                        <td class="text-success" >{{substr($questions->correct_answer,-1)}}. Answer</td>
                         <td style="width: 100px">
                             <a href="{{route('questions.edit',[$quiz->id,$questions->id])}}" class="btn btn-sm btn-primary"><i class=" fa fa-pen"></i></a>
                             <a href="{{route('questions.destroy',[$quiz->id,$questions->id])}}" class="btn btn-sm btn-danger"><i class=" fa fa-times"></i></a>

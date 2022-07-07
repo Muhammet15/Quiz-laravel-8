@@ -65,6 +65,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
+        return "sss";
     }
 
     /**
@@ -109,9 +110,7 @@ class QuestionController extends Controller
      */
     public function destroy($id,$question_id)
     {
-        $quiz = Quiz::find($id);
-        return "sadsd".$quiz;
-        $quiz->delete();
-        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Silindi.');
+        Quiz::find($id)->questions()->whereId($question_id)->first()->delete();
+        return redirect()->route('questions.index',$id)->withSuccess('Başarıyla Silindi.');
     }
 }

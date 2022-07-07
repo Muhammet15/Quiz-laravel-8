@@ -3,6 +3,7 @@
 
     <div class="card">
         <div class="card-body">
+            <h5 class="card-title"><a href="{{route('questions.index',$quiz->id)}}" class="btn btn-sm btn-secondary"> <i style="color:white" class="fa fa-arrow-left"></i> Quizlere dön</a></h5>
             <form method="POST" action="{{route('questions.store',$quiz->id)}}" enctype="multipart/form-data">
                 @csrf
                 <div class=" form-group mt-3">
