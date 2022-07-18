@@ -18,7 +18,17 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quizzes = Quiz::withCount('questions')->paginate(5);
+        // $quizzes = Quiz::withCount('questions')->paginate(5);
+        $quizzes = Quiz::withCount('questions');
+        if(request()->get('title'))
+        {
+            $quizzes=$quizzes->where('title','LIKE',"%".request()->get('title')."%");
+        }
+        if(request()->get('status'))
+        {
+            $quizzes=$quizzes->where('status',request()->get('status'));
+        }
+        $quizzes = $quizzes->paginate(5);
         return view('admin.quiz.list',compact('quizzes'));
     }
 
@@ -45,7 +55,7 @@ class QuizController extends Controller
         // $quiz->title=$request->title;
         // $quiz->save();
         Quiz::create($request->post()); // sql alanlar ile request adları aynı zaten
-        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Kaydedildi.');//withten sonra yollanan success bir sessiondır.
+        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Kaydedildi.');//withten sonra yollanan success bir sessiondır.  
     }
 
     /**

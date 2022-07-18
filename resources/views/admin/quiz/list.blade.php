@@ -3,7 +3,27 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"><a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"> <i style="color:white" class="fa fa-plus"></i> Quiz oluştur</a></h5>
+            <h5 class="card-title float-right"><a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"> <i style="color:white" class="fa fa-plus"></i> Quiz oluştur</a></h5>
+            <form method="GET" action="">
+                <div class="form-row mt-3 mb-15">
+                    <div class="col-md-2 float-left " >
+                        <input type="text" name="title" value="{{request()->get('title')}}" placeholder="Enter the Quiz Name" class="form-control">
+                    </div>
+                    <div class="col-md-2 float-left ml-10">
+                        <select name="status" onchange="this.form.submit()" class="form-control"> 
+                            <option value=""> Durum Seçiniz </option>
+                            <option @if(request()->get('status')=='publish') @selected(true)  @endif value="publish"> Publish </option>
+                            <option @if(request()->get('status')=='passive') @selected(true)  @endif value="passive"> Passive </option>
+                            <option @if(request()->get('status')=='draft') @selected(true)  @endif value="draft"> Draft </option>
+                        </select>
+                    </div>
+                </div>
+                @if(request()->get('title') || request()->get('status'))
+                <div class="col-md-2 float-left ml-10">
+                    <a href="{{route('quizzes.index')}}" class="btn btn-secondary btn-sm">Clear</a>
+                </div>
+                @endif
+            </form>
             <table class="table">
                 <thead>
                   <tr>
@@ -46,7 +66,7 @@
                     @endforeach
                 </tbody>
               </table>
-              {{$quizzes->links()}}
+              {{$quizzes->withQueryString()->links()}}
         </div>
    
 
