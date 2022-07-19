@@ -11,4 +11,5 @@ class Answer extends Model
 
     //timestamp kullanmak istemediğimizde
     public $timestamps=false;
+    protected $fillable=['user_id','question_id','answer'];
 }
