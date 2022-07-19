@@ -16,7 +16,7 @@
                     <label>Quiz Status</label>
                     <select name="status" class="form-control">
                         <option 
-                            @if($quiz->questions_count>4)
+                            @if($quiz->questions_count>3)
                                 @if($quiz->status==='publish') selected @endif  value="publish">Publish 
                             @endif 
                         </option>

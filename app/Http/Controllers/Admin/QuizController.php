@@ -54,6 +54,7 @@ class QuizController extends Controller
         // $quiz =new Quiz;
         // $quiz->title=$request->title;
         // $quiz->save();
+        // return $request->post();
         Quiz::create($request->post()); // sql alanlar ile request adları aynı zaten
         return redirect()->route('quizzes.index')->withSuccess('Başarıyla Kaydedildi.');//withten sonra yollanan success bir sessiondır.  
     }
@@ -92,8 +93,11 @@ class QuizController extends Controller
     public function update(QuizUpdateRequest $request, $id)
     {
        $quiz = Quiz::find($id) ?? abort(404,'Quiz bulunamadı');
+       $quiz->slug = null;
+       $quiz->update(['title' => $request->title]);
+    //    return $request;
        Quiz::where('id',$id)->update($request->except(['_method','_token'])); //hariç
-       
+
        // return $request->post();
        return redirect()->route('quizzes.index')->withSuccess('Başarıyla Güncellendi.');
 }

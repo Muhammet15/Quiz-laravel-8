@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
+use Cviebrock\EloquentSluggable\Sluggable;
+
 class Quiz extends Model
 {
+    
     use HasFactory;
-    protected $fillable=['title','description','finished_at'];
+    use Sluggable;
+    protected $fillable=['title','description','finished_at','slug'];
     //carbon kullanabilmek için yazdık diffforhuman için
     protected $dates=['finished_at'];
     public function getFinished($date){
@@ -17,5 +21,14 @@ class Quiz extends Model
     }
     public function questions(){
         return $this->hasMany('App\Models\Question');
+    }
+
+    public function sluggable():array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

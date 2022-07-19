@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'auth'],function(){
         Route::get('dashboard',[MainController::class,'dashboard'])->name('dashboard');
-        //Route::get('quiz/{slug}',[MainController::class,'quiz_detail'])->name('quiz.detail');
+        Route::get('quiz/{slug}',[MainController::class,'quiz_detail'])->name('quiz.detail');
 });
 // Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 //     Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
