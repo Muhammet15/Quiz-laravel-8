@@ -11,6 +11,6 @@
 @import url('/node_modules/@fortawesome/fontawesome-free/css/brands');
 
 
-.btn-primary {
-    background-color: #0d6efd !important;
+.btn-success {
+    background-color: #78e77d !important;
 }

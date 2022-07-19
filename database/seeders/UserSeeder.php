@@ -15,13 +15,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         \App\Models\User::insert([
-            'name' => 'Muhammet li Kayacan',
+            'name' => 'Muhammet ali Kayacan',
             'email' => 'muhammetluna@gmail.com',
             'type' => 'admin',
             'email_verified_at' =>  now(),
             'password' => '$2y$10$S3o7zTr08g5sL1UgetEmmurWQmzCH8tG/qPllLigsR35I4Hv3Jmlq',
             'remember_token'=> Str::random(10),
     ]);
-        \App\Models\User::factory(5)->create();
+        \App\Models\User::factory(10)->create();
     }
 }

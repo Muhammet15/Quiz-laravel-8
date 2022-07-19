@@ -21,4 +21,8 @@ class MainController extends Controller
         $quiz = Quiz::where('slug',$slug)->withCount('questions')->first() ?? abort(404, 'Quiz bulunamadı');
         return view('quiz_detail',compact('quiz'));
     }
+    public function result(Request $request,$slug){
+
+        return $request->post();
+    }
 }

@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <p class="card-text"></p>
-            <form method="POST" action="#">
+            <form method="POST" action="{{route('quiz.result',$quiz->slug)}}">
             @csrf
             @foreach($quiz->questions as $question )
             <p><strong>#{{$loop->iteration}} </strong>  {{$question->question}}</p>
@@ -40,7 +40,7 @@
                 <br>
                 @endif
             @endforeach
-            <button type="submit" class="btn btn-primary btn-sm w-100 mt-10">Quiz bitir</button>
+            <button type="submit" class="btn btn-success btn-sm w-100 mt-10">Quiz bitir</button>
             </form>
 
         </div>
