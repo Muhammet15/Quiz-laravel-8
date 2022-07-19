@@ -21,12 +21,15 @@ class MainController extends Controller
 
     public function quiz_detail($slug){
         //  return  Quiz::whereSlug('slug',$slug)->first() ?? abort(404, 'Quiz bulunamadı');
-        $quiz = Quiz::where('slug',$slug)->withCount('questions')->first() ?? abort(404, 'Quiz bulunamadı');
+        $quiz = Quiz::where('slug',$slug)->with('my_result','results')->withCount('questions')->first() ?? abort(404, 'Quiz bulunamadı');
         return view('quiz_detail',compact('quiz'));
     }
     public function result(Request $request,$slug){
         $quiz = Quiz::with('questions')->whereSlug($slug)->first() ?? abort(404,'Quiz bulunamadı');
         $correct = 0;
+        if($quiz->my_result){
+               abort(404,"Bu Quiz'e daha önce katıldınız");
+        }
         foreach($quiz->questions as $question){
             Answer::create([
                 'user_id'=>auth()->user()->id,
