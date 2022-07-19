@@ -9,3 +9,8 @@
 @import url('/node_modules/@fortawesome/fontawesome-free/css/regular');
 @import url('/node_modules/@fortawesome/fontawesome-free/css/solid');
 @import url('/node_modules/@fortawesome/fontawesome-free/css/brands');
+
+
+.btn-primary {
+    background-color: #0d6efd !important;
+}
