@@ -15,13 +15,19 @@ class MainController extends Controller
         return view('dashboard',compact('quizzes'));
     }
     public function quiz($slug){
-        $quiz = Quiz::whereSlug($slug)->with('questions')->first();
+         $quiz = Quiz::whereSlug($slug)->with('questions.my_answer')->first() ?? abort(404,"Quiz bulunamadı");
+        if($quiz->my_result)
+        {
+            return view('quiz_result',compact('quiz'));
+        }   
+       
         return view('quiz',compact('quiz'));
     }
 
     public function quiz_detail($slug){
         //  return  Quiz::whereSlug('slug',$slug)->first() ?? abort(404, 'Quiz bulunamadı');
-        $quiz = Quiz::where('slug',$slug)->with('my_result','topTen.user')->withCount('questions')->first() ?? abort(404, 'Quiz bulunamadı');
+        // $quiz = Quiz::where('slug',$slug)->with('my_result','topTen.user')->withCount('questions')->first() ?? abort(404, 'Quiz bulunamadı');
+         $quiz = Quiz::where('slug',$slug)->with('my_result','topTen.user')->withCount('questions')->first() ?? abort(404, 'Quiz bulunamadı');
         return view('quiz_detail',compact('quiz'));
     }
     public function result(Request $request,$slug){
