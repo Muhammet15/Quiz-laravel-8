@@ -22,6 +22,8 @@ class Quiz extends Model
     public function my_result(){
         return $this->hasOne('App\Models\Result')->where('user_id',auth()->user()->id);
     }
+
+
     public function getDetailsAttribute(){
         if($this->results()->count()>0){
         return [
@@ -36,7 +38,10 @@ class Quiz extends Model
     public function results(){
         return $this->hasMany('App\Models\Result');
     }
-
+    //ilişki içinde ilişki için
+    public function topTen(){
+        return $this->results()->orderByDesc('point')->take(10);
+    }
   //carbon kullanabilmek için yazdık diffforhuman için
     public function getFinished($date){
         return $date ? Carbon::parse($date):null;
