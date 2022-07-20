@@ -35,6 +35,7 @@ Route::group(['middleware'=>'auth'],function(){
 Route::group(['middleware' => ['auth','isAdmin'],'prefix'=>'admin'],function(){
     // Route::get('deneme',function() {return "middleware testi";  });
     Route::get('quizzes/{id}',[QuizController::class,'destroy'])->whereNumber('id')->name('quizzes.destroy'); //sadece sayı ollması için id yazdık ve delete için show gidiyordu ben override yaptım ve kodu üste yazmam gerekiyordu
+    Route::get('quiz/{id}/details',[QuizController::class,'show'])->whereNumber('id')->name('quizzes.details');
     Route::get('quiz/{quiz_id}/questions/{id}',[QuestionController::class,'destroy'])->whereNumber('id')->name('questions.destroy');
     Route::resource('quizzes',QuizController::class);
     Route::resource('quiz/{quiz_id}/questions',QuestionController::class);

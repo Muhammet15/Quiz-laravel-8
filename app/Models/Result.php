@@ -15,4 +15,9 @@ class Result extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function quiz(){
+        //ilişki için user_id verilerini alabilmek için
+        return $this->belongsTo('App\Models\Quiz');
+    }
+
 }

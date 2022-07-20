@@ -4,15 +4,14 @@
 
     <div class="card">
         <div class="card-body">
-            <h3 class="text-success">  Puan: {{$quiz->my_result['point']}}</h3>
             <div class="alert alert-info">
+                <h5 class="card-title float-right"><a href="{{route('dashboard')}}" class="btn btn-sm btn-info text-gray"> <i style="color:white" class="fa fa-arrow-left"></i> Anasayfaya dön</a></h5>
+                <h3 class="text-success">  Puan: {{$quiz->my_result['point']}}</h3>
                 <i class="fa fa-circle text-gray"></i> Yanlış işaretlediğin şık <br>
                 <i class="fa fa-check text-success"></i> Doğru Cevap  <br>
                 <i class="fa fa-times text-danger"> </i> Yanlış Cevap<br>
             </div>
-          
             @foreach($quiz->questions as $question )
-            
             <p> @if($question->correct_answer == $question->my_answer['answer']) 
                 <i class="fa fa-check text-success"> </i>
                     @else
@@ -41,7 +40,7 @@
                  <i class="fa fa-circle text-gray"> </i>
                  @endif
                     <label class="form-check-label" for="quiz{{$question->id}}2">
-                     {{$question->answer1}}
+                     {{$question->answer2}}
                     </label>
                 </div>
                 <div class="form-check">
@@ -51,7 +50,7 @@
                     <i class="fa fa-circle text-gray"> </i>
                     @endif
                     <label class="form-check-label" for="quiz{{$question->id}}3">
-                     {{$question->answer1}}
+                     {{$question->answer3}}
                     </label>
                 </div>
                 <div class="form-check">
@@ -61,7 +60,7 @@
                    <i class="fa fa-circle text-gray"> </i>
                    @endif
                     <label class="form-check-label" for="quiz{{$question->id}}4">
-                     {{$question->answer1}}
+                     {{$question->answer4}}
                     </label>
                 </div>
                 

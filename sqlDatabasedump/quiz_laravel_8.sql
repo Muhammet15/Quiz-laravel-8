@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Tem 2022, 10:59:33
+-- Üretim Zamanı: 20 Tem 2022, 14:21:14
 -- Sunucu sürümü: 10.4.21-MariaDB-log
 -- PHP Sürümü: 8.0.12
 
@@ -1175,7 +1175,53 @@ INSERT INTO `answers` (`id`, `user_id`, `question_id`, `answer`) VALUES
 (1160, 1, 69, 'answer1'),
 (1161, 1, 85, 'answer3'),
 (1162, 1, 89, 'answer4'),
-(1163, 1, 90, 'answer1');
+(1163, 1, 90, 'answer1'),
+(1164, 1, 6, 'answer2'),
+(1165, 1, 7, 'answer1'),
+(1166, 1, 27, 'answer2'),
+(1167, 1, 29, 'answer2'),
+(1168, 1, 33, 'answer2'),
+(1169, 1, 59, 'answer3'),
+(1170, 1, 64, 'answer1'),
+(1171, 1, 87, 'answer1'),
+(1172, 1, 6, 'answer1'),
+(1173, 1, 7, 'answer1'),
+(1174, 1, 27, 'answer2'),
+(1175, 1, 29, 'answer2'),
+(1176, 1, 33, 'answer3'),
+(1177, 1, 59, 'answer2'),
+(1178, 1, 64, 'answer1'),
+(1179, 1, 87, 'answer2'),
+(1180, 1, 6, 'answer1'),
+(1181, 1, 7, 'answer3'),
+(1182, 1, 27, 'answer3'),
+(1183, 1, 29, 'answer4'),
+(1184, 1, 33, 'answer3'),
+(1185, 1, 59, 'answer2'),
+(1186, 1, 64, 'answer3'),
+(1187, 1, 87, 'answer4'),
+(1188, 1, 8, 'answer3'),
+(1189, 1, 12, 'answer1'),
+(1190, 1, 23, 'answer1'),
+(1191, 1, 39, 'answer1'),
+(1192, 1, 48, 'answer3'),
+(1193, 1, 74, 'answer3'),
+(1194, 1, 81, 'answer4'),
+(1195, 1, 97, 'answer2'),
+(1196, 1, 20, 'answer3'),
+(1197, 1, 35, 'answer3'),
+(1198, 1, 55, 'answer3'),
+(1199, 1, 78, 'answer3'),
+(1200, 1, 88, 'answer3'),
+(1201, 1, 99, 'answer3'),
+(1202, 2, 6, 'answer3'),
+(1203, 2, 7, 'answer2'),
+(1204, 2, 27, 'answer2'),
+(1205, 2, 29, 'answer3'),
+(1206, 2, 33, 'answer2'),
+(1207, 2, 59, 'answer2'),
+(1208, 2, 64, 'answer2'),
+(1209, 2, 87, 'answer1');
 
 -- --------------------------------------------------------
 
@@ -1264,7 +1310,7 @@ INSERT INTO `questions` (`id`, `quiz_id`, `question`, `image`, `answer1`, `answe
 (3, 9, 'Beatae eaque modi porro voluptatum cumque aut assumenda ipsam minima.', NULL, 'Ad sapiente a.', 'Quod consequatur.', 'Repellendus et.', 'At ut quibusdam.', 'answer3', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (4, 10, 'Nihil dolorem aut qui veniam molestiae ut minima.', NULL, 'Itaque occaecati eaque.', 'Earum dolorem quia.', 'Autem suscipit saepe.', 'Saepe eaque dignissimos enim.', 'answer2', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (5, 9, 'Eos assumenda nisi iste sed architecto id.', NULL, 'Et natus.', 'Minus iure odit nisi.', 'Est amet nemo.', 'Aspernatur officiis.', 'answer2', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
-(6, 6, 'Possimus et est et enim adipisci.', NULL, 'Earum nostrum voluptatibus aut.', 'Eius qui.', 'Voluptatem expedita ut.', 'Eum quibusdam.', 'answer2', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
+(6, 6, 'Possimus et est et enim adipisci.', 'uploads/possimus-et-est-et-enim-adipisci.jpg', 'Earum nostrum voluptatibus aut.', 'Eius qui.', 'Voluptatem expedita ut.', 'Eum quibusdam.', 'answer2', '2022-07-19 09:15:12', '2022-07-20 08:28:59'),
 (7, 6, 'Quo unde tenetur illum aut quo est blanditiis.', NULL, 'Minus.', 'Libero labore et.', 'Velit.', 'Autem vel deserunt voluptatibus quo.', 'answer4', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (8, 1, 'Debitis voluptatem dicta harum reiciendis est hic at.', NULL, 'Ut dolorum.', 'Possimus ab est.', 'Dolores id ex.', 'Dolore enim.', 'answer2', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (9, 4, 'Voluptas aut nihil harum.', NULL, 'Ea soluta.', 'Consequuntur sequi.', 'Et aut nesciunt dolorem.', 'Odio laborum sequi.', 'answer3', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
@@ -1384,12 +1430,12 @@ CREATE TABLE `quizzes` (
 INSERT INTO `quizzes` (`id`, `title`, `description`, `slug`, `finished_at`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Ipsum unde illo.', 'Dolor eos velit ea aut nisi. Neque saepe possimus nesciunt et natus blanditiis veniam. Ipsa et voluptates possimus ut consectetur.', 'ipsum-unde-illo', NULL, 'publish', '2022-07-19 09:15:12', '2022-07-19 10:41:44'),
 (2, 'Aut sequi cupiditate et quae eaque alias nemo veritatis eligendi.', 'Harum enim quo nisi modi modi illo quis est. Quis nostrum ut harum sed quas ea odit nisi. Quo aut est officiis a velit.', 'aut-sequi-cupiditate-et-quae-eaque-alias-nemo-veritatis-eligendi', NULL, 'publish', '2022-07-19 09:15:12', '2022-07-19 10:30:50'),
-(3, 'Quae facilis quia.', 'Pariatur odit velit perferendis accusantium. Cum rerum assumenda sed. Explicabo placeat numquam praesentium. Est consectetur voluptatem iusto rem.', 'quae-facilis-quia', NULL, 'publish', '2022-07-19 09:15:12', '2022-07-19 10:41:50'),
-(4, 'Aut sint consequuntur.', 'Quia fugiat omnis laudantium. Inventore aliquam est et mollitia quod quos est.', 'aut-sint-consequuntur', NULL, 'publish', '2022-07-19 09:15:12', '2022-07-19 10:41:56'),
+(3, 'Quae facilis quia.', 'Pariatur odit velit perferendis accusantium. Cum rerum assumenda sed. Explicabo placeat numquam praesentium. Est consectetur voluptatem iusto rem.', 'quae-facilis-quia', NULL, 'passive', '2022-07-19 09:15:12', '2022-07-20 08:23:18'),
+(4, 'Aut sint consequuntur.', 'Quia fugiat omnis laudantium. Inventore aliquam est et mollitia quod quos est.', 'aut-sint-consequuntur', NULL, 'passive', '2022-07-19 09:15:12', '2022-07-20 08:23:23'),
 (5, 'Vel quos optio pariatur nobis.', 'Est sit est voluptas necessitatibus. Et vitae amet est voluptatem quasi minus amet quia.', 'vel-quos-optio-pariatur-nobis', NULL, 'draft', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
-(6, 'Totam est enim labore enim.', 'Dolor quia id quae id dolore. Assumenda inventore similique et quae in ab deleniti vel. Natus laudantium vitae soluta aut itaque consequuntur. Tempora totam sit doloremque corrupti.', 'totam-est-enim-labore-enim', NULL, 'draft', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
+(6, 'Totam est enim labore enim.', 'Dolor quia id quae id dolore. Assumenda inventore similique et quae in ab deleniti vel. Natus laudantium vitae soluta aut itaque consequuntur. Tempora totam sit doloremque corrupti.', 'totam-est-enim-labore-enim', '2022-07-20 09:17:00', 'publish', '2022-07-19 09:15:12', '2022-07-20 09:14:26'),
 (7, 'Iure vel quia repudiandae atque debitis natus.', 'Rerum labore distinctio aliquam rerum aut. Praesentium ratione explicabo quaerat tempore magni eum consectetur. Repudiandae rerum quia quaerat ea.', 'iure-vel-quia-repudiandae-atque-debitis-natus', NULL, 'draft', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
-(8, 'Ut temporibus inventore enim.', 'Quia accusamus ratione aut sed repellat quibusdam. Consequatur natus error enim ipsa ut. Sed temporibus error aut officia atque.', 'ut-temporibus-inventore-enim', NULL, 'publish', '2022-07-19 09:15:12', '2022-07-19 09:15:34'),
+(8, 'Ut temporibus inventore enim.', 'Quia accusamus ratione aut sed repellat quibusdam. Consequatur natus error enim ipsa ut. Sed temporibus error aut officia atque.', 'ut-temporibus-inventore-enim', '2022-07-21 11:16:22', 'publish', '2022-07-19 09:15:12', '2022-07-19 09:15:34'),
 (9, 'Assumenda aliquid beatae omnis.', 'Eum sed tempore nihil. Non et vel eligendi sed consequatur nostrum quia nisi. Harum dolor cupiditate dolor ratione.', 'assumenda-aliquid-beatae-omnis', NULL, 'draft', '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (10, 'Voluptatem dicta exercitationem alias corporis.', 'Minima molestiae minima dolore assumenda a. Minus ab voluptates aut neque sed. Sequi laborum et doloribus atque vel itaque. Ipsam occaecati dicta repudiandae ex porro fugit.', 'voluptatem-dicta-exercitationem-alias-corporis', NULL, 'draft', '2022-07-19 09:15:12', '2022-07-19 09:15:12');
 
@@ -1430,8 +1476,9 @@ INSERT INTO `results` (`id`, `user_id`, `quiz_id`, `point`, `correct`, `wrong`, 
 (16, 10, 3, 76, 19, 7, '2022-07-19 09:15:13', '2022-07-19 09:15:13'),
 (17, 7, 3, 24, 6, 6, '2022-07-19 09:15:13', '2022-07-19 09:15:13'),
 (20, 4, 1, 55, 13, 9, '2022-07-19 09:15:13', '2022-07-19 09:15:13'),
-(28, 1, 8, 33, 2, 4, '2022-07-20 04:04:09', '2022-07-20 04:04:09'),
-(29, 1, 3, 33, 5, 10, '2022-07-20 04:04:58', '2022-07-20 04:04:58');
+(32, 1, 6, 13, 1, 7, '2022-07-20 08:28:13', '2022-07-20 08:28:13'),
+(34, 1, 8, 67, 4, 2, '2022-07-20 08:39:16', '2022-07-20 08:39:16'),
+(35, 2, 6, 25, 2, 6, '2022-07-20 09:16:41', '2022-07-20 09:16:41');
 
 -- --------------------------------------------------------
 
@@ -1453,7 +1500,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('QygG6WZw9nA8fU4pQOH6AO5mEcBIe522DyrY5not', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTERsRkxmQ2Q4bTdaMzNmZHEyN08wRzRaelJlWXlBSzhENU9QYmFkQiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjU1OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvcXVpei91dC10ZW1wb3JpYnVzLWludmVudG9yZS1lbmltIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRTM283elRyMDhnNXNMMVVnZXRFbW11cldRbXpDSDh0Ry9xUGxsTGlnc1IzNUk0SHYzSm1scSI7fQ==', 1658307455);
+('6ffVlmaEQVz6GzjOVHQQTQT6XG2x11jHnkIOR09l', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiU3RTeEpMRE5ocEpneURKQnR2YmZrQzZ4OTZ6ckdqMTM3RmhRb2tITyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9xdWl6L3RvdGFtLWVzdC1lbmltLWxhYm9yZS1lbmltIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1658319636),
+('Flw6j0Lh1khRT7Gau0gGhKOjlumZlc7iF77LNy5m', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWG5GTjlrS05XaTdCZ0pZNFFOcmMzcGJyNHRoSVd2ZDVoQURtZlpRVCI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2Rhc2hib2FyZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1658314687),
+('G6J6nc26Ay2JP0QfGRijdVoaSEGtooib9SdrIs2B', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidEI1RGhpMjVaRWdPTWU0YnpvRktLS05CSXBNdVQ4cHBvTDlqek1kRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1658319320);
 
 -- --------------------------------------------------------
 
@@ -1483,8 +1532,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `type`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Muhammet ali Kayacan', 'muhammetluna@gmail.com', 'admin', '2022-07-19 09:15:12', '$2y$10$S3o7zTr08g5sL1UgetEmmurWQmzCH8tG/qPllLigsR35I4Hv3Jmlq', NULL, NULL, NULL, '9onviMpwkL', NULL, 'profile-photos/VwXEKlYAZJw3RijnMI9w4r5nM0RMuZZPnpdl8y8P.jpg', NULL, '2022-07-20 04:01:32'),
-(2, 'Peter Rolfson', 'hintz.jaylan@example.com', 'user', '2022-07-19 09:15:12', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, '8dpxtFN1Kt', NULL, NULL, '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
+(1, 'Muhammet ali Kayacan', 'muhammetluna@gmail.com', 'admin', '2022-07-19 09:15:12', '$2y$10$S3o7zTr08g5sL1UgetEmmurWQmzCH8tG/qPllLigsR35I4Hv3Jmlq', NULL, NULL, NULL, 'uMgJ44Geh1BlW673vS1UAjKaJgOqGNn8xQ4U7tweA0Bl9NKA9Y4c2eiOnZfX', NULL, 'profile-photos/VwXEKlYAZJw3RijnMI9w4r5nM0RMuZZPnpdl8y8P.jpg', NULL, '2022-07-20 04:01:32'),
+(2, 'Peter Rolfson', 'muhammetluna2@gmail.com', 'user', '2022-07-19 09:15:12', '$2y$10$S3o7zTr08g5sL1UgetEmmurWQmzCH8tG/qPllLigsR35I4Hv3Jmlq', NULL, NULL, NULL, '8dpxtFN1Kt', NULL, NULL, '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (3, 'Sidney Beahan', 'sdurgan@example.net', 'user', '2022-07-19 09:15:12', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'xs1T78xcaj', NULL, NULL, '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (4, 'Nyah Hansen', 'abernathy.alysa@example.org', 'admin', '2022-07-19 09:15:12', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'TCC6JwGtXA', NULL, NULL, '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
 (5, 'Dr. Abner Kihn MD', 'kris.janae@example.net', 'user', '2022-07-19 09:15:12', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'IX6lnJYZNX', NULL, NULL, '2022-07-19 09:15:12', '2022-07-19 09:15:12'),
@@ -1571,7 +1620,7 @@ ALTER TABLE `users`
 -- Tablo için AUTO_INCREMENT değeri `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1164;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1210;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `migrations`
@@ -1601,7 +1650,7 @@ ALTER TABLE `quizzes`
 -- Tablo için AUTO_INCREMENT değeri `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `users`

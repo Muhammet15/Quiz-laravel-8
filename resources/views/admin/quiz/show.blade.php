@@ -4,31 +4,11 @@
 
     <div class="card">
         <div class="card-body">
-        <h5 class="card-subtitle mb-2 text-muted">Description</h5>
+          <h5 class="card-title"><a href="{{route('quizzes.index')}}" class="btn btn-sm btn-secondary"> <i style="color:white" class="fa fa-arrow-left"></i> Quizlere dön</a></h5>
           <p class="card-text">
             <div class="row">
                 <div class="col-md-4">
                     <ul class="list-group">
-                      @if($quiz->my_rank)
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Sıralama
-                          <span class="badge alert-info">#{{$quiz->my_rank}}</span>
-                      </li>
-                      @endif
-                    @if($quiz->my_result)
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Puan
-                          <span class="badge alert-primary">{{$quiz->my_result->point}}</span>
-                      </li>
-                   
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Doğru / Yanlış Sayısı
-                        <div class="float-right">
-                        <span class="badge alert-success">{{$quiz->my_result->correct}} Doğru </span>
-                        <span class="badge alert-danger">{{$quiz->my_result->wrong}} Yanlış</span>
-                        </div>
-                      </li>
-                    @endif
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Soru Sayısı
                               <span class="badge alert-dark">{{$quiz->questions_count}}</span>
@@ -67,12 +47,29 @@
                 </div>
                 <div class="col-md-8"> 
                     {{$quiz->description}}</p>
-                    @if($quiz->my_result)
-                    <a href="{{route('quiz.join',$quiz->slug)}}" class="btn btn-info btn-sm w-100 mt-3">View Quiz</a>
-                    @elseif($quiz->finished_at==null||$quiz->finished_at>now())
-                    <a href="{{route('quiz.join',$quiz->slug)}}" class="btn btn-primary btn-sm w-100 mt-3">Enter the Quiz</a>
-                    @endif
-                  </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Ad Soyad</th>
+                          <th scope="col">Mail</th>
+                          <th scope="col">Quiz Puanı</th>
+                          <th scope="col">Doğru</th>
+                          <th scope="col">Yanlış</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          @foreach ($quiz->results as $result)
+                          <tr>
+                            <td>{{$result->user->name}}</td>
+                            <td>{{$result->user->email}}</td>
+                            <td>{{$result->point}}</td>
+                            <td>{{$result->correct}}</td>
+                            <td>{{$result->wrong}}</td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                    </table>
+                </div>
             </div>
            
         </div>
