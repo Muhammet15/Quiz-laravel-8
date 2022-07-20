@@ -4,12 +4,15 @@
 
     <div class="card">
         <div class="card-body">
+            <h3 class="text-success">  Puan: {{$quiz->my_result['point']}}</h3>
             <div class="alert alert-info">
                 <i class="fa fa-circle text-gray"></i> Yanlış işaretlediğin şık <br>
                 <i class="fa fa-check text-success"></i> Doğru Cevap  <br>
                 <i class="fa fa-times text-danger"> </i> Yanlış Cevap<br>
             </div>
+          
             @foreach($quiz->questions as $question )
+            
             <p> @if($question->correct_answer == $question->my_answer['answer']) 
                 <i class="fa fa-check text-success"> </i>
                     @else
@@ -18,6 +21,8 @@
             <strong>#{{$loop->iteration}} </strong>
                   {{$question->question}}</p>
                 @if($question->image) <img src="{{asset($question->image)}}"  style="width:40%" class="img-responsive"> @endif
+                <small>Bu soruya <strong>%{{$question->true_percent}}</strong>  oranında doğru cevap verildi</small>
+            <br>
                 <div class="form-check mt-2">
                     @if('answer1'==$question->correct_answer)
                     <i class="fa fa-check text-success"> </i>
