@@ -10,6 +10,7 @@ php artisan cache:clear
 php artisan ui bootstrap --auth
 npm install
 
+create storage folder 
 php 8.0 laravel 8.0 , xampp server mysql 3306 
 
 
