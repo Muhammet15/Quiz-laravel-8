@@ -1,12 +1,14 @@
 # Quiz-laravel-8
 
 composer update
-composer dump-aulotaded
+composer dump-autoload 
 cp .env.example .env
 php artisan migration:fresh --seed
 php artisan key:generate
 php artisan config:cache
 php artisan cache:clear
+php artisan ui bootstrap --auth
+npm install
 
 php 8.0 laravel 8.0 , xampp server mysql 3306 
 

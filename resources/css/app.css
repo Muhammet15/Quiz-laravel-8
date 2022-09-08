@@ -14,3 +14,27 @@
 .btn-success {
     background-color: #78e77d !important;
 }
+.badge{
+    background-color: #ffffff !important;
+}
+.alert-success{
+    background-color: #78e77d !important;
+}
+.alert-danger{
+    background-color: #e60c1e !important;
+}
+.alert-info{
+    background-color: #89b3f3 !important;
+}
+.alert-dark{
+    background-color: #272a2d !important;
+}
+.alert-light{
+    background-color: #c1d0e5 !important;
+}
+.alert-primary{
+    background-color: blue !important;
+}
+.alert-warning{
+    background-color: rgb(139, 139, 27) !important;
+}

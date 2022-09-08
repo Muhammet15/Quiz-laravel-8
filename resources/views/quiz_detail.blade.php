@@ -24,6 +24,7 @@
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         Doğru / Yanlış Sayısı
                         <div class="float-right">
+                          <span class="badge alert-success">  {{$quiz->my_result->correct}}  </span>
                         <span class="badge alert-success">{{$quiz->my_result->correct}} Doğru </span>
                         <span class="badge alert-danger">{{$quiz->my_result->wrong}} Yanlış</span>
                         </div>
