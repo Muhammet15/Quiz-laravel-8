@@ -7,6 +7,7 @@ php artisan migration:fresh --seed
 php artisan key:generate
 php artisan config:cache
 php artisan cache:clear
+php artisan ui bootstrap
 php artisan ui bootstrap --auth
 npm install
 
