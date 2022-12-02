@@ -3,7 +3,7 @@ php8.0^
 composer update
 composer dump-autoload 
 cp .env.example .env
-php artisan migration:fresh --seed
+php artisan migrate:fresh --seed
 php artisan key:generate
 php artisan config:cache
 php artisan cache:clear
