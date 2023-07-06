@@ -9,7 +9,7 @@ php artisan config:cache
 php artisan cache:clear
 php artisan ui bootstrap
 //php artisan ui bootstrap --auth
-npm install
+npm install  (8.19.2)
 npm run dev (sürüm kontrol)
 
 create storage folder 
